@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT
+
 pragma solidity ^0.8.4;
 import "@openzeppelin/contracts/token/ERC20/IERC20.sol";
 import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
@@ -222,7 +224,7 @@ contract Titano is ERC20Detailed, Ownable, ReentrancyGuard {
 
     constructor() ERC20Detailed("Titano", "TITANO", uint8(DECIMALS))
     {
-        router = IDEXRouter(0x10ED43C718714eb63d5aA57B78B54704E256024E); //mainnet 0x2Bf55D1596786F1AE8160e997D655DbE6d9Bca7A Swytch
+        router = IDEXRouter(0x10ED43C718714eb63d5aA57B78B54704E256024E);//<-- this one is pancake swap //mainnet 0x2Bf55D1596786F1AE8160e997D655DbE6d9Bca7A Swytch
         
         pair = IDEXFactory(router.factory()).createPair(
             address(this),
