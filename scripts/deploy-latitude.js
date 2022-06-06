@@ -14,12 +14,12 @@ async function main() {
   // await hre.run('compile');
 
   // We get the contract to deploy
-  const Titano = await hre.ethers.getContractFactory("Titano");
-  const titano = await Titano.deploy();
+  const Latitude = await hre.ethers.getContractFactory("Latitude");
+  const latitude = await Latitude.deploy();
 
-  await titano.deployed();
+  await latitude.deployed();
 
-  console.log("Titano deployed to:", titano.address);
+  console.log("latitude deployed to:", latitude.address); //0xC57fD8EaA5a404b9199d411DA6009584452d2411
 }
 
 // We recommend this pattern to be able to use async/await everywhere
@@ -30,3 +30,5 @@ main()
     console.error(error);
     process.exit(1);
   });
+
+  

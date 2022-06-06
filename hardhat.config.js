@@ -1,4 +1,5 @@
 require("@nomiclabs/hardhat-waffle");
+let secret = require("./secret");
 
 // This is a sample Hardhat task. To learn how to create your own go to
 // https://hardhat.org/guides/create-task.html
@@ -45,12 +46,16 @@ module.exports = {
     },
     localHost: {
       url: "http://127.0.0.1:8545",
-      gas: 1200000000000000,
-      blockGasLimit: 0x1fffffffffffff,
-      allowUnlimitedContractSize: true,
-      throwOnTransactionFailures: true,
-      throwOnCallFailures: true,
-      accounts: ["0xac0974bec39a17e36ba4a6b4d238ff944bacb478cbed5efcae784d7bf4f2ff80"]
+      // gas: 1200000000000000,
+      // blockGasLimit: 0x1fffffffffffff,
+      // allowUnlimitedContractSize: true,
+      // throwOnTransactionFailures: true,
+      // throwOnCallFailures: true,
+      //accounts: ["145b78f4cf1f2d6ce832b01017345a4b109a918222ae0d3d3da455035655b374"]
+    },
+    bscTestNet: {
+      url: secret.url,
+      accounts: [secret.key]
     }
   }
 };

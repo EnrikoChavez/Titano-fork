@@ -143,7 +143,7 @@ interface IDEXFactory {
         returns (address pair);
 }
 
-contract Titano is ERC20Detailed, Ownable, ReentrancyGuard {
+contract Latitude is ERC20Detailed, Ownable, ReentrancyGuard {
     using SafeMath for uint256;
     using SafeMathInt for int256;
 
@@ -178,13 +178,13 @@ contract Titano is ERC20Detailed, Ownable, ReentrancyGuard {
     address ZERO = 0x0000000000000000000000000000000000000000;
 
     address public liquidityReceiver =
-        0xF52c9341dC4ee92c321Fa11e01E3a6303f9bBe00;
+        0xA1FBb393818bdF4858946CA5f67A9B2Cd017bB37;
     address public treasuryReceiver =
-        0x6560eD767D6003D779F60BCCD2d7B168Cd4a1583;
+        0xD3e087da8A00136f2847b469ec140790F7b52360;
     address public riskFreeValueReceiver =
-        0xAf47725C293452Ade77770Bfb6BD2680564DA157;
+        0x458A80A04e180d3600b5D98713f5108318b34ff2;
     
-    address public usdtToken = 0x55d398326f99059fF775485246999027B3197955; //mainnet
+    address public usdtToken = 0x337610d27c682E347C9cD60BD4b3b107C9d34dDd; //mainnet: 0x55d398326f99059fF775485246999027B3197955, testnet: 0x337610d27c682E347C9cD60BD4b3b107C9d34dDd
 
     IDEXRouter public router;
     address public pair;
@@ -222,9 +222,12 @@ contract Titano is ERC20Detailed, Ownable, ReentrancyGuard {
     mapping(address => uint256) private _gonBalances;
     mapping(address => mapping(address => uint256)) private _allowedFragments;
 
-    constructor() ERC20Detailed("Titano", "TITANO", uint8(DECIMALS))
+    constructor() ERC20Detailed("Latitude", "LATIT", uint8(DECIMALS))
     {
-        router = IDEXRouter(0x10ED43C718714eb63d5aA57B78B54704E256024E);//<-- this one is pancake swap //mainnet 0x2Bf55D1596786F1AE8160e997D655DbE6d9Bca7A Swytch
+        // 0x10ED43C718714eb63d5aA57B78B54704E256024E <-- this one is pancake swap
+        // mainnet 0x2Bf55D1596786F1AE8160e997D655DbE6d9Bca7A Swytch
+        // 0xD99D1c33F9fC3444f8101754aBC46c52416550D1 pancake swap bsc testnet
+        router = IDEXRouter(0xD99D1c33F9fC3444f8101754aBC46c52416550D1);
         
         pair = IDEXFactory(router.factory()).createPair(
             address(this),
