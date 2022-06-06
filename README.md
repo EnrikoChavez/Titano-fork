@@ -6,7 +6,9 @@ Progress:
 
 -Tested functionality and got experience in updating a contract over time from it's initial distribution stage to a public (testnet) distribution
 
-Notes learned while deploying contract on BSC testnet: -Setting up the automated market makers when it comes to getting fees working is important, check BSC scan to make sure to retrieve Pancake Swaps address as an automated market maker
+Notes learned while deploying contract on BSC testnet: 
+
+-Setting up the automated market makers when it comes to getting fees working is important, check BSC scan to make sure to retrieve Pancake Swaps address as an automated market maker
 
 -Set the nextRebase value to something that works for now, such as "1", If you dont see rebasing it is because autorebase is not turned on, frequency is very infrequent, or next rebase is set to too far from now. All these can be changed from the setter methods.
 
